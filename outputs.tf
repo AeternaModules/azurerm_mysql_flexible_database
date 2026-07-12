@@ -1,3 +1,7 @@
+output "mysql_flexible_databases_id" {
+  description = "Map of id values across all mysql_flexible_databases, keyed the same as var.mysql_flexible_databases"
+  value       = { for k, v in azurerm_mysql_flexible_database.mysql_flexible_databases : k => v.id }
+}
 output "mysql_flexible_databases_charset" {
   description = "Map of charset values across all mysql_flexible_databases, keyed the same as var.mysql_flexible_databases"
   value       = { for k, v in azurerm_mysql_flexible_database.mysql_flexible_databases : k => v.charset }
